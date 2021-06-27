@@ -12,74 +12,74 @@ from pathlib import Path
 from typing import Callable, Dict, List, Optional, Tuple
 
 from blspy import AugSchemeMPL, G1Element, G2Element, PrivateKey
-from chiabip158 import PyBIP158
+from bitchiabip158 import PyBIP158
 
-from chia.cmds.init_funcs import create_all_ssl, create_default_chia_config
-from chia.full_node.bundle_tools import (
+from bitchia.cmds.init_funcs import create_all_ssl, create_default_bitchia_config
+from bitchia.full_node.bundle_tools import (
     best_solution_generator_from_template,
     detect_potential_template_generator,
     simple_solution_generator,
 )
-from chia.util.errors import Err
-from chia.full_node.generator import setup_generator_args
-from chia.full_node.mempool_check_conditions import GENERATOR_MOD
-from chia.plotting.create_plots import create_plots
-from chia.consensus.block_creation import unfinished_block_to_full_block
-from chia.consensus.block_record import BlockRecord
-from chia.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from chia.consensus.blockchain_interface import BlockchainInterface
-from chia.consensus.coinbase import create_puzzlehash_for_pk, create_farmer_coin, create_pool_coin
-from chia.consensus.constants import ConsensusConstants
-from chia.consensus.default_constants import DEFAULT_CONSTANTS
-from chia.consensus.deficit import calculate_deficit
-from chia.consensus.full_block_to_block_record import block_to_block_record
-from chia.consensus.make_sub_epoch_summary import next_sub_epoch_summary
-from chia.consensus.cost_calculator import NPCResult, calculate_cost_of_program
-from chia.consensus.pot_iterations import (
+from bitchia.util.errors import Err
+from bitchia.full_node.generator import setup_generator_args
+from bitchia.full_node.mempool_check_conditions import GENERATOR_MOD
+from bitchia.plotting.create_plots import create_plots
+from bitchia.consensus.block_creation import unfinished_block_to_full_block
+from bitchia.consensus.block_record import BlockRecord
+from bitchia.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from bitchia.consensus.blockchain_interface import BlockchainInterface
+from bitchia.consensus.coinbase import create_puzzlehash_for_pk, create_farmer_coin, create_pool_coin
+from bitchia.consensus.constants import ConsensusConstants
+from bitchia.consensus.default_constants import DEFAULT_CONSTANTS
+from bitchia.consensus.deficit import calculate_deficit
+from bitchia.consensus.full_block_to_block_record import block_to_block_record
+from bitchia.consensus.make_sub_epoch_summary import next_sub_epoch_summary
+from bitchia.consensus.cost_calculator import NPCResult, calculate_cost_of_program
+from bitchia.consensus.pot_iterations import (
     calculate_ip_iters,
     calculate_iterations_quality,
     calculate_sp_interval_iters,
     calculate_sp_iters,
     is_overflow_block,
 )
-from chia.consensus.vdf_info_computation import get_signage_point_vdf_info
-from chia.full_node.signage_point import SignagePoint
-from chia.plotting.plot_tools import PlotInfo, load_plots, parse_plot_info
-from chia.types.blockchain_format.classgroup import ClassgroupElement
-from chia.types.blockchain_format.coin import Coin, hash_coin_list
-from chia.types.blockchain_format.foliage import Foliage, FoliageBlockData, FoliageTransactionBlock, TransactionsInfo
-from chia.types.blockchain_format.pool_target import PoolTarget
-from chia.types.blockchain_format.proof_of_space import ProofOfSpace
-from chia.types.blockchain_format.reward_chain_block import RewardChainBlockUnfinished
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.blockchain_format.slots import (
+from bitchia.consensus.vdf_info_computation import get_signage_point_vdf_info
+from bitchia.full_node.signage_point import SignagePoint
+from bitchia.plotting.plot_tools import PlotInfo, load_plots, parse_plot_info
+from bitchia.types.blockchain_format.classgroup import ClassgroupElement
+from bitchia.types.blockchain_format.coin import Coin, hash_coin_list
+from bitchia.types.blockchain_format.foliage import Foliage, FoliageBlockData, FoliageTransactionBlock, TransactionsInfo
+from bitchia.types.blockchain_format.pool_target import PoolTarget
+from bitchia.types.blockchain_format.proof_of_space import ProofOfSpace
+from bitchia.types.blockchain_format.reward_chain_block import RewardChainBlockUnfinished
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.blockchain_format.slots import (
     ChallengeChainSubSlot,
     InfusedChallengeChainSubSlot,
     RewardChainSubSlot,
     SubSlotProofs,
 )
-from chia.types.blockchain_format.sub_epoch_summary import SubEpochSummary
-from chia.types.blockchain_format.vdf import VDFInfo, VDFProof
-from chia.types.condition_with_args import ConditionWithArgs
-from chia.types.end_of_slot_bundle import EndOfSubSlotBundle
-from chia.types.full_block import FullBlock
-from chia.types.generator_types import BlockGenerator, CompressorArg
-from chia.types.spend_bundle import SpendBundle
-from chia.types.unfinished_block import UnfinishedBlock
-from chia.types.name_puzzle_condition import NPC
-from chia.util.bech32m import encode_puzzle_hash
-from chia.util.block_cache import BlockCache
-from chia.util.condition_tools import ConditionOpcode, conditions_by_opcode
-from chia.util.config import load_config, save_config
-from chia.util.hash import std_hash
-from chia.util.ints import uint8, uint16, uint32, uint64, uint128
-from chia.util.keychain import Keychain, bytes_to_mnemonic
-from chia.util.merkle_set import MerkleSet
-from chia.util.prev_transaction_block import get_prev_transaction_block
-from chia.util.path import mkdir
-from chia.util.vdf_prover import get_vdf_info_and_proof
+from bitchia.types.blockchain_format.sub_epoch_summary import SubEpochSummary
+from bitchia.types.blockchain_format.vdf import VDFInfo, VDFProof
+from bitchia.types.condition_with_args import ConditionWithArgs
+from bitchia.types.end_of_slot_bundle import EndOfSubSlotBundle
+from bitchia.types.full_block import FullBlock
+from bitchia.types.generator_types import BlockGenerator, CompressorArg
+from bitchia.types.spend_bundle import SpendBundle
+from bitchia.types.unfinished_block import UnfinishedBlock
+from bitchia.types.name_puzzle_condition import NPC
+from bitchia.util.bech32m import encode_puzzle_hash
+from bitchia.util.block_cache import BlockCache
+from bitchia.util.condition_tools import ConditionOpcode, conditions_by_opcode
+from bitchia.util.config import load_config, save_config
+from bitchia.util.hash import std_hash
+from bitchia.util.ints import uint8, uint16, uint32, uint64, uint128
+from bitchia.util.keychain import Keychain, bytes_to_mnemonic
+from bitchia.util.merkle_set import MerkleSet
+from bitchia.util.prev_transaction_block import get_prev_transaction_block
+from bitchia.util.path import mkdir
+from bitchia.util.vdf_prover import get_vdf_info_and_proof
 from tests.wallet_tools import WalletTool
-from chia.wallet.derive_keys import (
+from bitchia.wallet.derive_keys import (
     master_sk_to_farmer_sk,
     master_sk_to_local_sk,
     master_sk_to_pool_sk,
@@ -131,7 +131,7 @@ class BlockTools:
             root_path = Path(self._tempdir.name)
 
         self.root_path = root_path
-        create_default_chia_config(root_path)
+        create_default_bitchia_config(root_path)
         self.keychain = Keychain("testing-1.8.0", True)
         self.keychain.delete_all_keys()
         self.farmer_master_sk_entropy = std_hash(b"block_tools farmer key")
@@ -155,7 +155,7 @@ class BlockTools:
 
         farmer_pubkeys: List[G1Element] = [master_sk_to_farmer_sk(sk).get_g1() for sk in self.all_sks]
         if len(self.pool_pubkeys) == 0 or len(farmer_pubkeys) == 0:
-            raise RuntimeError("Keys not generated. Run `chia generate keys`")
+            raise RuntimeError("Keys not generated. Run `bitchia generate keys`")
 
         _, loaded_plots, _, _ = load_plots({}, {}, farmer_pubkeys, self.pool_pubkeys, None, False, root_path)
         self.plots: Dict[Path, PlotInfo] = loaded_plots
@@ -1193,7 +1193,7 @@ def get_challenges(
 
 
 def get_plot_dir() -> Path:
-    cache_path = Path(os.path.expanduser(os.getenv("CHIA_ROOT", "~/.chia/"))) / "test-plots"
+    cache_path = Path(os.path.expanduser(os.getenv("CHIA_ROOT", "~/.bitchia/"))) / "test-plots"
     mkdir(cache_path)
     return cache_path
 

@@ -2,14 +2,14 @@ from typing import Dict, List, Optional, Tuple
 
 import aiosqlite
 
-from chia.consensus.block_record import BlockRecord
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.blockchain_format.sub_epoch_summary import SubEpochSummary
-from chia.types.header_block import HeaderBlock
-from chia.util.db_wrapper import DBWrapper
-from chia.util.ints import uint32, uint64
-from chia.util.lru_cache import LRUCache
-from chia.wallet.block_record import HeaderBlockRecord
+from bitchia.consensus.block_record import BlockRecord
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.blockchain_format.sub_epoch_summary import SubEpochSummary
+from bitchia.types.header_block import HeaderBlock
+from bitchia.util.db_wrapper import DBWrapper
+from bitchia.util.ints import uint32, uint64
+from bitchia.util.lru_cache import LRUCache
+from bitchia.wallet.block_record import HeaderBlockRecord
 
 
 class WalletBlockStore:

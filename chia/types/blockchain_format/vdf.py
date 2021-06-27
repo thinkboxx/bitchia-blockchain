@@ -5,13 +5,13 @@ from enum import IntEnum
 from typing import Optional
 from functools import lru_cache
 
-from chiavdf import create_discriminant, verify_n_wesolowski
+from bitchiavdf import create_discriminant, verify_n_wesolowski
 
-from chia.consensus.constants import ConsensusConstants
-from chia.types.blockchain_format.classgroup import ClassgroupElement
-from chia.types.blockchain_format.sized_bytes import bytes32, bytes100
-from chia.util.ints import uint8, uint64
-from chia.util.streamable import Streamable, streamable
+from bitchia.consensus.constants import ConsensusConstants
+from bitchia.types.blockchain_format.classgroup import ClassgroupElement
+from bitchia.types.blockchain_format.sized_bytes import bytes32, bytes100
+from bitchia.util.ints import uint8, uint64
+from bitchia.util.streamable import Streamable, streamable
 
 log = logging.getLogger(__name__)
 

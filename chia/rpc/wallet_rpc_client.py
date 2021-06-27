@@ -1,19 +1,19 @@
 from pathlib import Path
 from typing import Dict, List
 
-from chia.rpc.rpc_client import RpcClient
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.util.bech32m import decode_puzzle_hash
-from chia.util.ints import uint32, uint64
-from chia.wallet.transaction_record import TransactionRecord
+from bitchia.rpc.rpc_client import RpcClient
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.util.bech32m import decode_puzzle_hash
+from bitchia.util.ints import uint32, uint64
+from bitchia.wallet.transaction_record import TransactionRecord
 
 
 class WalletRpcClient(RpcClient):
     """
-    Client to Chia RPC, connects to a local wallet. Uses HTTP/JSON, and converts back from
+    Client to BitChia RPC, connects to a local wallet. Uses HTTP/JSON, and converts back from
     JSON into native python objects before returning. All api calls use POST requests.
-    Note that this is not the same as the peer protocol, or wallet protocol (which run Chia's
+    Note that this is not the same as the peer protocol, or wallet protocol (which run BitChia's
     protocol on top of TCP), it's a separate protocol on top of HTTP thats provides easy access
     to the full node.
     """
@@ -23,7 +23,7 @@ class WalletRpcClient(RpcClient):
         try:
             return await self.fetch(
                 "log_in",
-                {"host": "https://backup.chia.net", "fingerprint": fingerprint, "type": "start"},
+                {"host": "https://backup.bitchia.net", "fingerprint": fingerprint, "type": "start"},
             )
 
         except ValueError as e:
@@ -34,7 +34,7 @@ class WalletRpcClient(RpcClient):
             return await self.fetch(
                 "log_in",
                 {
-                    "host": "https://backup.chia.net",
+                    "host": "https://backup.bitchia.net",
                     "fingerprint": fingerprint,
                     "type": "restore_backup",
                     "file_path": file_path,
@@ -47,7 +47,7 @@ class WalletRpcClient(RpcClient):
         try:
             return await self.fetch(
                 "log_in",
-                {"host": "https://backup.chia.net", "fingerprint": fingerprint, "type": "skip"},
+                {"host": "https://backup.bitchia.net", "fingerprint": fingerprint, "type": "skip"},
             )
         except ValueError as e:
             return e.args[0]

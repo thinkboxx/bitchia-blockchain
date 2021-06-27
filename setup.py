@@ -2,9 +2,9 @@ from setuptools import setup
 
 dependencies = [
     "blspy==1.0.2",  # Signature library
-    "chiavdf==1.0.2",  # timelord and vdf verification
-    "chiabip158==1.0",  # bip158-style wallet filters
-    "chiapos==1.0.3",  # proof of space
+    "bitchiavdf==1.0.2",  # timelord and vdf verification
+    "bitchiabip158==1.0",  # bip158-style wallet filters
+    "bitchiapos==1.0.3",  # proof of space
     "clvm==0.9.7",
     "clvm_rs==0.1.8",
     "clvm_tools==0.4.3",
@@ -19,7 +19,7 @@ dependencies = [
     #  "keyrings.cryptfile==1.3.8",  # Secure storage for keys on Linux (Will be replaced)
     #  See https://github.com/frispete/keyrings.cryptfile/issues/15
     "PyYAML==5.4.1",  # Used for config file format
-    "setproctitle==1.2.2",  # Gives the chia processes readable names
+    "setproctitle==1.2.2",  # Gives the bitchia processes readable names
     "sortedcontainers==2.3.0",  # For maintaining sorted mempools
     "websockets==8.1.0",  # For use in wallet RPC and electron UI
     "click==7.1.2",  # For the CLI
@@ -41,14 +41,14 @@ dev_dependencies = [
 ]
 
 kwargs = dict(
-    name="chia-blockchain",
+    name="bitchia-blockchain",
     author="Mariano Sorgente",
-    author_email="mariano@chia.net",
-    description="Chia blockchain full node, farmer, timelord, and wallet.",
-    url="https://chia.net/",
+    author_email="mariano@bitchia.net",
+    description="BitChia blockchain full node, farmer, timelord, and wallet.",
+    url="https://bitchia.net/",
     license="Apache License",
     python_requires=">=3.7, <4",
-    keywords="chia blockchain node",
+    keywords="bitchia blockchain node",
     install_requires=dependencies,
     setup_requires=["setuptools_scm"],
     extras_require=dict(
@@ -58,52 +58,52 @@ kwargs = dict(
     ),
     packages=[
         "build_scripts",
-        "chia",
-        "chia.cmds",
-        "chia.consensus",
-        "chia.daemon",
-        "chia.full_node",
-        "chia.timelord",
-        "chia.farmer",
-        "chia.harvester",
-        "chia.introducer",
-        "chia.plotting",
-        "chia.protocols",
-        "chia.rpc",
-        "chia.server",
-        "chia.simulator",
-        "chia.types.blockchain_format",
-        "chia.types",
-        "chia.util",
-        "chia.wallet",
-        "chia.wallet.puzzles",
-        "chia.wallet.rl_wallet",
-        "chia.wallet.cc_wallet",
-        "chia.wallet.did_wallet",
-        "chia.wallet.settings",
-        "chia.wallet.trading",
-        "chia.wallet.util",
-        "chia.ssl",
+        "bitchia",
+        "bitchia.cmds",
+        "bitchia.consensus",
+        "bitchia.daemon",
+        "bitchia.full_node",
+        "bitchia.timelord",
+        "bitchia.farmer",
+        "bitchia.harvester",
+        "bitchia.introducer",
+        "bitchia.plotting",
+        "bitchia.protocols",
+        "bitchia.rpc",
+        "bitchia.server",
+        "bitchia.simulator",
+        "bitchia.types.blockchain_format",
+        "bitchia.types",
+        "bitchia.util",
+        "bitchia.wallet",
+        "bitchia.wallet.puzzles",
+        "bitchia.wallet.rl_wallet",
+        "bitchia.wallet.cc_wallet",
+        "bitchia.wallet.did_wallet",
+        "bitchia.wallet.settings",
+        "bitchia.wallet.trading",
+        "bitchia.wallet.util",
+        "bitchia.ssl",
         "mozilla-ca",
     ],
     entry_points={
         "console_scripts": [
-            "chia = chia.cmds.chia:main",
-            "chia_wallet = chia.server.start_wallet:main",
-            "chia_full_node = chia.server.start_full_node:main",
-            "chia_harvester = chia.server.start_harvester:main",
-            "chia_farmer = chia.server.start_farmer:main",
-            "chia_introducer = chia.server.start_introducer:main",
-            "chia_timelord = chia.server.start_timelord:main",
-            "chia_timelord_launcher = chia.timelord.timelord_launcher:main",
-            "chia_full_node_simulator = chia.simulator.start_simulator:main",
+            "bitchia = bitchia.cmds.bitchia:main",
+            "bitchia_wallet = bitchia.server.start_wallet:main",
+            "bitchia_full_node = bitchia.server.start_full_node:main",
+            "bitchia_harvester = bitchia.server.start_harvester:main",
+            "bitchia_farmer = bitchia.server.start_farmer:main",
+            "bitchia_introducer = bitchia.server.start_introducer:main",
+            "bitchia_timelord = bitchia.server.start_timelord:main",
+            "bitchia_timelord_launcher = bitchia.timelord.timelord_launcher:main",
+            "bitchia_full_node_simulator = bitchia.simulator.start_simulator:main",
         ]
     },
     package_data={
-        "chia": ["pyinstaller.spec"],
-        "chia.wallet.puzzles": ["*.clvm", "*.clvm.hex"],
-        "chia.util": ["initial-*.yaml", "english.txt"],
-        "chia.ssl": ["chia_ca.crt", "chia_ca.key", "dst_root_ca.pem"],
+        "bitchia": ["pyinstaller.spec"],
+        "bitchia.wallet.puzzles": ["*.clvm", "*.clvm.hex"],
+        "bitchia.util": ["initial-*.yaml", "english.txt"],
+        "bitchia.ssl": ["bitchia_ca.crt", "bitchia_ca.key", "dst_root_ca.pem"],
         "mozilla-ca": ["cacert.pem"],
     },
     use_scm_version={"fallback_version": "unknown-no-.git-directory"},

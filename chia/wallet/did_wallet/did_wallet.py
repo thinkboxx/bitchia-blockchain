@@ -6,28 +6,28 @@ from typing import Dict, Optional, List, Any, Set, Tuple, Union
 
 from blspy import AugSchemeMPL, G1Element
 from secrets import token_bytes
-from chia.protocols import wallet_protocol
-from chia.protocols.wallet_protocol import RespondAdditions, RejectAdditionsRequest
-from chia.server.outbound_message import NodeType
-from chia.types.blockchain_format.coin import Coin
-from chia.types.coin_solution import CoinSolution
+from bitchia.protocols import wallet_protocol
+from bitchia.protocols.wallet_protocol import RespondAdditions, RejectAdditionsRequest
+from bitchia.server.outbound_message import NodeType
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.coin_solution import CoinSolution
 
-from chia.types.blockchain_format.program import Program
-from chia.types.spend_bundle import SpendBundle
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.wallet.util.transaction_type import TransactionType
-from chia.util.ints import uint64, uint32, uint8
+from bitchia.types.blockchain_format.program import Program
+from bitchia.types.spend_bundle import SpendBundle
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.wallet.util.transaction_type import TransactionType
+from bitchia.util.ints import uint64, uint32, uint8
 
-from chia.wallet.did_wallet.did_info import DIDInfo
-from chia.wallet.cc_wallet.ccparent import CCParent
-from chia.wallet.transaction_record import TransactionRecord
-from chia.wallet.util.wallet_types import WalletType
-from chia.wallet.wallet import Wallet
-from chia.wallet.wallet_coin_record import WalletCoinRecord
-from chia.wallet.wallet_info import WalletInfo
-from chia.wallet.derivation_record import DerivationRecord
-from chia.wallet.did_wallet import did_wallet_puzzles
-from chia.wallet.derive_keys import master_sk_to_wallet_sk
+from bitchia.wallet.did_wallet.did_info import DIDInfo
+from bitchia.wallet.cc_wallet.ccparent import CCParent
+from bitchia.wallet.transaction_record import TransactionRecord
+from bitchia.wallet.util.wallet_types import WalletType
+from bitchia.wallet.wallet import Wallet
+from bitchia.wallet.wallet_coin_record import WalletCoinRecord
+from bitchia.wallet.wallet_info import WalletInfo
+from bitchia.wallet.derivation_record import DerivationRecord
+from bitchia.wallet.did_wallet import did_wallet_puzzles
+from bitchia.wallet.derive_keys import master_sk_to_wallet_sk
 
 
 class DIDWallet:

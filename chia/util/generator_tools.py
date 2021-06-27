@@ -1,12 +1,12 @@
 from typing import List, Tuple
-from chiabip158 import PyBIP158
+from bitchiabip158 import PyBIP158
 
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.full_block import FullBlock
-from chia.types.header_block import HeaderBlock
-from chia.types.name_puzzle_condition import NPC
-from chia.util.condition_tools import created_outputs_for_conditions_dict
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.full_block import FullBlock
+from bitchia.types.header_block import HeaderBlock
+from bitchia.types.name_puzzle_condition import NPC
+from bitchia.util.condition_tools import created_outputs_for_conditions_dict
 
 
 def get_block_header(block: FullBlock, tx_addition_coins: List[Coin], removals_names: List[bytes32]) -> HeaderBlock:

@@ -1,16 +1,16 @@
 import pytest
 from blspy import AugSchemeMPL
 
-from chia.consensus.pot_iterations import is_overflow_block
-from chia.protocols import full_node_protocol
-from chia.rpc.full_node_rpc_api import FullNodeRpcApi
-from chia.rpc.full_node_rpc_client import FullNodeRpcClient
-from chia.rpc.rpc_server import start_rpc_server
-from chia.simulator.simulator_protocol import FarmNewBlockProtocol
-from chia.types.spend_bundle import SpendBundle
-from chia.types.unfinished_block import UnfinishedBlock
-from chia.util.hash import std_hash
-from chia.util.ints import uint16
+from bitchia.consensus.pot_iterations import is_overflow_block
+from bitchia.protocols import full_node_protocol
+from bitchia.rpc.full_node_rpc_api import FullNodeRpcApi
+from bitchia.rpc.full_node_rpc_client import FullNodeRpcClient
+from bitchia.rpc.rpc_server import start_rpc_server
+from bitchia.simulator.simulator_protocol import FarmNewBlockProtocol
+from bitchia.types.spend_bundle import SpendBundle
+from bitchia.types.unfinished_block import UnfinishedBlock
+from bitchia.util.hash import std_hash
+from bitchia.util.ints import uint16
 from tests.wallet_tools import WalletTool
 from tests.setup_nodes import bt, self_hostname, setup_simulators_and_wallets, test_constants
 from tests.time_out_assert import time_out_assert

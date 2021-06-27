@@ -2,13 +2,13 @@ from typing import List, Optional
 
 import aiosqlite
 
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.mempool_inclusion_status import MempoolInclusionStatus
-from chia.util.db_wrapper import DBWrapper
-from chia.util.errors import Err
-from chia.util.ints import uint8, uint32
-from chia.wallet.trade_record import TradeRecord
-from chia.wallet.trading.trade_status import TradeStatus
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.mempool_inclusion_status import MempoolInclusionStatus
+from bitchia.util.db_wrapper import DBWrapper
+from bitchia.util.errors import Err
+from bitchia.util.ints import uint8, uint32
+from bitchia.wallet.trade_record import TradeRecord
+from bitchia.wallet.trading.trade_status import TradeStatus
 
 
 class TradeStore:

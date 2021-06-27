@@ -2,19 +2,19 @@ import pathlib
 from multiprocessing import freeze_support
 from typing import Dict
 
-from chia.consensus.constants import ConsensusConstants
-from chia.consensus.default_constants import DEFAULT_CONSTANTS
-from chia.rpc.wallet_rpc_api import WalletRpcApi
-from chia.server.outbound_message import NodeType
-from chia.server.start_service import run_service
-from chia.types.peer_info import PeerInfo
-from chia.util.config import load_config_cli, load_config
-from chia.util.default_root import DEFAULT_ROOT_PATH
-from chia.util.keychain import Keychain
-from chia.wallet.wallet_node import WalletNode
+from bitchia.consensus.constants import ConsensusConstants
+from bitchia.consensus.default_constants import DEFAULT_CONSTANTS
+from bitchia.rpc.wallet_rpc_api import WalletRpcApi
+from bitchia.server.outbound_message import NodeType
+from bitchia.server.start_service import run_service
+from bitchia.types.peer_info import PeerInfo
+from bitchia.util.config import load_config_cli, load_config
+from bitchia.util.default_root import DEFAULT_ROOT_PATH
+from bitchia.util.keychain import Keychain
+from bitchia.wallet.wallet_node import WalletNode
 
 # See: https://bugs.python.org/issue29288
-from chia.wallet.wallet_node_api import WalletNodeAPI
+from bitchia.wallet.wallet_node_api import WalletNodeAPI
 
 "".encode("idna")
 

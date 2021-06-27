@@ -1,21 +1,21 @@
 from typing import Dict, List, Optional, Tuple
 
-from chia.consensus.block_record import BlockRecord
-from chia.rpc.rpc_client import RpcClient
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.coin_record import CoinRecord
-from chia.types.full_block import FullBlock
-from chia.types.spend_bundle import SpendBundle
-from chia.types.unfinished_header_block import UnfinishedHeaderBlock
-from chia.util.byte_types import hexstr_to_bytes
-from chia.util.ints import uint32, uint64
+from bitchia.consensus.block_record import BlockRecord
+from bitchia.rpc.rpc_client import RpcClient
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.coin_record import CoinRecord
+from bitchia.types.full_block import FullBlock
+from bitchia.types.spend_bundle import SpendBundle
+from bitchia.types.unfinished_header_block import UnfinishedHeaderBlock
+from bitchia.util.byte_types import hexstr_to_bytes
+from bitchia.util.ints import uint32, uint64
 
 
 class FullNodeRpcClient(RpcClient):
     """
-    Client to Chia RPC, connects to a local full node. Uses HTTP/JSON, and converts back from
+    Client to BitChia RPC, connects to a local full node. Uses HTTP/JSON, and converts back from
     JSON into native python objects before returning. All api calls use POST requests.
-    Note that this is not the same as the peer protocol, or wallet protocol (which run Chia's
+    Note that this is not the same as the peer protocol, or wallet protocol (which run BitChia's
     protocol on top of TCP), it's a separate protocol on top of HTTP thats provides easy access
     to the full node.
     """

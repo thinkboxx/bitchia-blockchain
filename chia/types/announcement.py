@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.util.hash import std_hash
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.util.hash import std_hash
 
 
 @dataclass(frozen=True)

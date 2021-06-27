@@ -5,22 +5,22 @@ from typing import Dict, List, Optional, Tuple
 
 from blspy import G2Element
 
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.program import Program
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.condition_opcodes import ConditionOpcode
-from chia.types.spend_bundle import CoinSolution, SpendBundle
-from chia.util.ints import uint64
-from chia.wallet.cc_wallet.cc_utils import (
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.blockchain_format.program import Program
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.condition_opcodes import ConditionOpcode
+from bitchia.types.spend_bundle import CoinSolution, SpendBundle
+from bitchia.util.ints import uint64
+from bitchia.wallet.cc_wallet.cc_utils import (
     CC_MOD,
     cc_puzzle_for_inner_puzzle,
     cc_puzzle_hash_for_inner_puzzle_hash,
     spend_bundle_for_spendable_ccs,
     spendable_cc_list_from_coin_solution,
 )
-from chia.wallet.cc_wallet.debug_spend_bundle import debug_spend_bundle
-from chia.wallet.puzzles.genesis_by_coin_id_with_0 import create_genesis_or_zero_coin_checker
-from chia.wallet.puzzles.genesis_by_puzzle_hash_with_0 import create_genesis_puzzle_or_zero_coin_checker
+from bitchia.wallet.cc_wallet.debug_spend_bundle import debug_spend_bundle
+from bitchia.wallet.puzzles.genesis_by_coin_id_with_0 import create_genesis_or_zero_coin_checker
+from bitchia.wallet.puzzles.genesis_by_puzzle_hash_with_0 import create_genesis_puzzle_or_zero_coin_checker
 
 CONDITIONS = dict((k, bytes(v)[0]) for k, v in ConditionOpcode.__members__.items())  # pylint: disable=E1101
 
@@ -199,7 +199,7 @@ def test_spend_zero_coin(mod_code: Program, coin_checker_for_farmed_coin):
     assert len(eve_cc_list) == 1
     eve_cc_spendable = eve_cc_list[0]
 
-    # farm regular chia
+    # farm regular bitchia
 
     farmed_coin = generate_farmed_coin(2, eve_inner_puzzle_hash, amount=500)
 

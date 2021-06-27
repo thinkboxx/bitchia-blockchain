@@ -2,13 +2,13 @@ from typing import List, Optional
 
 import aiosqlite
 
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.coin_record import CoinRecord
-from chia.types.full_block import FullBlock
-from chia.util.db_wrapper import DBWrapper
-from chia.util.ints import uint32, uint64
-from chia.util.lru_cache import LRUCache
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.coin_record import CoinRecord
+from bitchia.types.full_block import FullBlock
+from bitchia.util.db_wrapper import DBWrapper
+from bitchia.util.ints import uint32, uint64
+from bitchia.util.lru_cache import LRUCache
 
 
 class CoinStore:

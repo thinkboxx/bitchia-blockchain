@@ -2,15 +2,15 @@ import logging
 import pathlib
 from typing import Dict
 
-from chia.consensus.constants import ConsensusConstants
-from chia.consensus.default_constants import DEFAULT_CONSTANTS
-from chia.server.outbound_message import NodeType
-from chia.server.start_service import run_service
-from chia.timelord.timelord import Timelord
-from chia.timelord.timelord_api import TimelordAPI
-from chia.types.peer_info import PeerInfo
-from chia.util.config import load_config_cli
-from chia.util.default_root import DEFAULT_ROOT_PATH
+from bitchia.consensus.constants import ConsensusConstants
+from bitchia.consensus.default_constants import DEFAULT_CONSTANTS
+from bitchia.server.outbound_message import NodeType
+from bitchia.server.start_service import run_service
+from bitchia.timelord.timelord import Timelord
+from bitchia.timelord.timelord_api import TimelordAPI
+from bitchia.types.peer_info import PeerInfo
+from bitchia.util.config import load_config_cli
+from bitchia.util.default_root import DEFAULT_ROOT_PATH
 
 # See: https://bugs.python.org/issue29288
 "".encode("idna")

@@ -4,25 +4,25 @@ import logging
 import time
 from typing import Dict, List, Optional, Set, Tuple
 
-from chia.consensus.block_record import BlockRecord
-from chia.consensus.blockchain_interface import BlockchainInterface
-from chia.consensus.constants import ConsensusConstants
-from chia.consensus.difficulty_adjustment import can_finish_sub_and_full_epoch
-from chia.consensus.make_sub_epoch_summary import next_sub_epoch_summary
-from chia.consensus.multiprocess_validation import PreValidationResult
-from chia.consensus.pot_iterations import calculate_sp_interval_iters
-from chia.full_node.signage_point import SignagePoint
-from chia.protocols import timelord_protocol
-from chia.server.outbound_message import Message
-from chia.types.blockchain_format.classgroup import ClassgroupElement
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.blockchain_format.sub_epoch_summary import SubEpochSummary
-from chia.types.blockchain_format.vdf import VDFInfo
-from chia.types.end_of_slot_bundle import EndOfSubSlotBundle
-from chia.types.full_block import FullBlock
-from chia.types.generator_types import CompressorArg
-from chia.types.unfinished_block import UnfinishedBlock
-from chia.util.ints import uint8, uint32, uint64, uint128
+from bitchia.consensus.block_record import BlockRecord
+from bitchia.consensus.blockchain_interface import BlockchainInterface
+from bitchia.consensus.constants import ConsensusConstants
+from bitchia.consensus.difficulty_adjustment import can_finish_sub_and_full_epoch
+from bitchia.consensus.make_sub_epoch_summary import next_sub_epoch_summary
+from bitchia.consensus.multiprocess_validation import PreValidationResult
+from bitchia.consensus.pot_iterations import calculate_sp_interval_iters
+from bitchia.full_node.signage_point import SignagePoint
+from bitchia.protocols import timelord_protocol
+from bitchia.server.outbound_message import Message
+from bitchia.types.blockchain_format.classgroup import ClassgroupElement
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.blockchain_format.sub_epoch_summary import SubEpochSummary
+from bitchia.types.blockchain_format.vdf import VDFInfo
+from bitchia.types.end_of_slot_bundle import EndOfSubSlotBundle
+from bitchia.types.full_block import FullBlock
+from bitchia.types.generator_types import CompressorArg
+from bitchia.types.unfinished_block import UnfinishedBlock
+from bitchia.util.ints import uint8, uint32, uint64, uint128
 
 log = logging.getLogger(__name__)
 

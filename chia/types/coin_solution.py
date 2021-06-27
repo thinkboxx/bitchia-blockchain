@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 from typing import List
 
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.program import SerializedProgram, INFINITE_COST
-from chia.util.chain_utils import additions_for_solution
-from chia.util.streamable import Streamable, streamable
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.blockchain_format.program import SerializedProgram, INFINITE_COST
+from bitchia.util.chain_utils import additions_for_solution
+from bitchia.util.streamable import Streamable, streamable
 
 
 @dataclass(frozen=True)

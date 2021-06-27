@@ -4,13 +4,13 @@ from blspy import AugSchemeMPL
 from clvm import KEYWORD_FROM_ATOM
 from clvm_tools.binutils import disassemble as bu_disassemble
 
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.program import Program, INFINITE_COST
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.condition_opcodes import ConditionOpcode
-from chia.types.spend_bundle import SpendBundle
-from chia.util.condition_tools import conditions_dict_for_solution, pkm_pairs_for_conditions_dict
-from chia.util.hash import std_hash
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.blockchain_format.program import Program, INFINITE_COST
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.condition_opcodes import ConditionOpcode
+from bitchia.types.spend_bundle import SpendBundle
+from bitchia.util.condition_tools import conditions_dict_for_solution, pkm_pairs_for_conditions_dict
+from bitchia.util.hash import std_hash
 
 CONDITIONS = dict((k, bytes(v)[0]) for k, v in ConditionOpcode.__members__.items())  # pylint: disable=E1101
 KFA = {v: k for k, v in CONDITIONS.items()}

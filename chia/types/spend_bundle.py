@@ -3,9 +3,9 @@ from typing import List
 
 from blspy import AugSchemeMPL, G2Element
 
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.util.streamable import Streamable, streamable
+from bitchia.types.blockchain_format.coin import Coin
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.util.streamable import Streamable, streamable
 
 from .coin_solution import CoinSolution
 

@@ -1,23 +1,23 @@
 from typing import Any, Callable, Dict, List, Optional
 
-from chia.consensus.block_record import BlockRecord
-from chia.consensus.pos_quality import UI_ACTUAL_SPACE_CONSTANT_FACTOR
-from chia.full_node.full_node import FullNode
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.coin_record import CoinRecord
-from chia.types.full_block import FullBlock
-from chia.types.mempool_inclusion_status import MempoolInclusionStatus
-from chia.types.spend_bundle import SpendBundle
-from chia.types.unfinished_header_block import UnfinishedHeaderBlock
-from chia.util.byte_types import hexstr_to_bytes
-from chia.util.ints import uint32, uint64, uint128
-from chia.util.ws_message import WsRpcMessage, create_payload_dict
+from bitchia.consensus.block_record import BlockRecord
+from bitchia.consensus.pos_quality import UI_ACTUAL_SPACE_CONSTANT_FACTOR
+from bitchia.full_node.full_node import FullNode
+from bitchia.types.blockchain_format.sized_bytes import bytes32
+from bitchia.types.coin_record import CoinRecord
+from bitchia.types.full_block import FullBlock
+from bitchia.types.mempool_inclusion_status import MempoolInclusionStatus
+from bitchia.types.spend_bundle import SpendBundle
+from bitchia.types.unfinished_header_block import UnfinishedHeaderBlock
+from bitchia.util.byte_types import hexstr_to_bytes
+from bitchia.util.ints import uint32, uint64, uint128
+from bitchia.util.ws_message import WsRpcMessage, create_payload_dict
 
 
 class FullNodeRpcApi:
     def __init__(self, service: FullNode):
         self.service = service
-        self.service_name = "chia_full_node"
+        self.service_name = "bitchia_full_node"
         self.cached_blockchain_state: Optional[Dict] = None
 
     def get_routes(self) -> Dict[str, Callable]:
